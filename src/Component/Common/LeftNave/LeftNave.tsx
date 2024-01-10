@@ -1,5 +1,5 @@
 import { useContext, type FC } from 'react';
-import { NavLink, NavLinkProps } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { IoReorderThreeOutline } from 'react-icons/io5'
 import { BiSun } from 'react-icons/bi'
 import { AiOutlineStar } from 'react-icons/ai'
@@ -13,7 +13,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 interface LeftNaveProps { }
 
 const LeftNave: FC<LeftNaveProps> = () => {
-    const { darkMode, setLeftNaveBar, setOpenEdit, handleThemesToggle, MyDay,task,Importaint ,planned}: any = useContext(MyContext)
+    const { darkMode, setLeftNaveBar, setOpenEdit, handleThemesToggle, MyDay, task, Importaint, planned }: any = useContext(MyContext)
 
     return (
         <>
@@ -23,9 +23,8 @@ const LeftNave: FC<LeftNaveProps> = () => {
                 </div>
 
                 <NavLink to={'/myDay'}
-                onClick={()=> setOpenEdit(false)}
-                    className={` ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100 border-l-2'} `}>
-
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className='  pl-6 flex justify-between  py-2.5 '>
                         <div className='flex items-center gap-5'>
                             <span><BiSun /></span>
@@ -36,9 +35,9 @@ const LeftNave: FC<LeftNaveProps> = () => {
                     </div>
                 </NavLink>
 
-                <NavLink to={'/Importaint'} 
-                onClick={()=> setOpenEdit(false)}
-                className={`border-l-2 ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100 '} `}>
+                <NavLink to={'/Importaint'}
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className=' pl-6 flex justify-between  py-2.5'>
                         <div className='flex items-center gap-5'>
                             <span><AiOutlineStar /></span>
@@ -49,9 +48,9 @@ const LeftNave: FC<LeftNaveProps> = () => {
                     </div>
                 </NavLink>
 
-                <NavLink to={'/planed'} 
-                onClick={()=> setOpenEdit(false)}
-                className={`border-l-2 ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100'} `}>
+                <NavLink to={'/planed'}
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className='  pl-6 flex justify-between  py-2.5'>
                         <div className='flex items-center gap-5'>
                             <span><BsCalendar4Event className='text-sm' /></span>
@@ -61,9 +60,9 @@ const LeftNave: FC<LeftNaveProps> = () => {
                         </span></div>
                 </NavLink>
 
-                <NavLink to={'/'} 
-                onClick={()=> setOpenEdit(false)}
-                className={`border-l-2 ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100'} `}>
+                <NavLink to={'/'}
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className=' flex justify-between gap-5 pl-6 text-xl  py-2.5'>
                         <div className='flex items-center gap-5'>
                             <span className='text-xl'><IoInfiniteOutline /></span>
@@ -73,9 +72,9 @@ const LeftNave: FC<LeftNaveProps> = () => {
                         </span>
                     </div>
                 </NavLink>
-                <NavLink to={'/completed'} 
-                onClick={()=> setOpenEdit(false)}
-                className={`border-l-2 ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100'} `}>
+                <NavLink to={'/completed'}
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className=' flex justify-between gap-5 pl-6 text-xl  py-2.5'>
                         <div className='flex items-center gap-5'>
                             <span><CiCircleCheck /></span>
@@ -83,9 +82,9 @@ const LeftNave: FC<LeftNaveProps> = () => {
                     </div>
                 </NavLink>
 
-                <NavLink to={'/Tasks/:_id'} 
-                onClick={()=> setOpenEdit(false)}
-                className={`border-l-2 ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100'} `}>
+                <NavLink to={'/Tasks/:_id'}
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className=' flex justify-between gap-5 pl-6 text-xl  py-2.5'>
                         <div className='flex items-center gap-5'>
                             <span><GoHome /></span>
@@ -97,9 +96,9 @@ const LeftNave: FC<LeftNaveProps> = () => {
                 </NavLink>
                 <hr className='w-full mt-4 mb-3 flex items-center' />
 
-                <NavLink to={'/recyclebin'} 
-                onClick={()=> setOpenEdit(false)}
-                className={`border-l-2 ${darkMode ? 'hover:bg-[#3b3a39] act' : 'hover:bg-gray-100'} `}>
+                <NavLink to={'/recyclebin'}
+                    onClick={() => setOpenEdit(false)}
+                    className={({ isActive }) => `${isActive ? `bg-[#eff6fc]  text-black border-l-4 border-[#3748e0]` : `border-l-4 border-transparent ${darkMode ? 'hover:bg-[#3b3a39] ' : 'hover:bg-gray-100 '}`} `}>
                     <div className=' flex justify-between gap-5 pl-6 text-xl  py-2.5'>
                         <div className='flex items-center gap-5'>
                             <span><RiDeleteBin6Line /></span>
