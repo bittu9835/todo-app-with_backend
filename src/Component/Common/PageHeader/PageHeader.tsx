@@ -25,6 +25,7 @@ const PageHeader: FC<PageHeaderProps> = (props) => {
     let monthName = date.toLocaleString('default', { month: 'long' });
     useEffect(() => {
         setThemeColor(localStorage.getItem(props.heading + '-color') ?? '#482ff7')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [colorChange])
 
     

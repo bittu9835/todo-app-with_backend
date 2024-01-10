@@ -1,59 +1,87 @@
-import { FC, useContext, useEffect, useState } from 'react';
+import { FC, useContext, useEffect } from 'react';
 import PageHeader from '../../Common/PageHeader/PageHeader';
 import Form from '../../Common/Inputs/Inputs';
 import { BsCalendar4Event, BsCircle } from 'react-icons/bs';
 import { IoReorderThreeOutline } from 'react-icons/io5'
 import { MyContext } from '../../../Contaxt/Contaxt';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { BiSolidTrash } from 'react-icons/bi';
 import { motion } from 'framer-motion';
+import http from '../../../Services/http';
 
 interface PlanedProps { }
 
 const Planed: FC<PlanedProps> = () => {
     const { LeftNaveBar,setRender ,setOpenEdit, setEditData,rander,darkMode,handleThemesToggle,planned, setPlanned}: any = useContext(MyContext)
-    const headers = { token: localStorage.getItem('token') }
     
-   
-    const fetchData = () => {
-        axios.get(`http://localhost:4000/api/notes/planned`, { headers })
-            .then((response) => {
-                setPlanned(response.data.note)
-            })
-            .catch((error) => {
-                console.log("Error occurred:", error);
+    const fetchData = async () => {
+        try {
+            const response: any = await http({
+                url: `/notes/planned`,
+                method: 'get',
             });
+            if (response?.data?.code === 'SUCCESS_200') {
+                setPlanned(response?.data?.data)
+            } else {
+                toast.error(response?.data?.message);
+            }
+        } catch (error: any) {
+            if (error.response && error.response.data && error.response.data.message) {
+                toast.error(error?.response?.data?.message);
+            } else {
+                toast.error('Enternal Server Error');
+            }
+        }
     }
 
-    const handleCheck = (todo: any) => {
-        axios.delete(`http://localhost:4000/api/notes/${todo._id}/completed`, { headers })
-            .then((response) => {
+    const handleCheck = async (todo: any) => {
+        try {
+            const response: any = await http({
+                url: `/notes/${todo._id}/completed`,
+                method: 'delete',
+            });
+            if (response?.data?.code === 'SUCCESS_200') {
                 fetchData()
                 setRender(!rander)
                 toast.success(response.data.message)
-            })
-            .catch((error) => {
-                console.log("Error occurred:", error);
-                toast.error('Enternal Server Error')
-            });
+            } else {
+                toast.error(response?.data?.message);
+            }
+        } catch (error: any) {
+            if (error.response && error.response.data && error.response.data.message) {
+                toast.error(error?.response?.data?.message);
+            } else {
+                toast.error('Enternal Server Error');
+            }
+        }
     }
 
-    const handleDelete = (todo: any) => {
-        axios.delete(`http://localhost:4000/api/notes/${todo._id}/delete`, { headers })
-            .then((response) => {
+    const handleDelete = async (todo: any) => {
+        try {
+            const response: any = await http({
+                url: `/notes/${todo._id}/delete`,
+                method: 'delete',
+            });
+            if (response?.data?.code === 'SUCCESS_200') {
                 fetchData()
                 setRender(!rander)
                 toast.success(response.data.message)
-            })
-            .catch((error) => {
-                console.log("Error occurred:", error);
-                toast.error('Enternal Server Error')
-            });
+            } else {
+                toast.error(response?.data?.message);
+            }
+        } catch (error: any) {
+            if (error.response && error.response.data && error.response.data.message) {
+                toast.error(error?.response?.data?.message);
+            } else {
+                toast.error('Enternal Server Error');
+            }
+        }
     }
+
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [rander])
 
     const handleEdit=(todo:any)=>{

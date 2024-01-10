@@ -47,12 +47,12 @@ interface ContextValue {
     setPlanned: React.Dispatch<React.SetStateAction<datas[]>>
     openEdit: boolean
     setOpenEdit: React.Dispatch<React.SetStateAction<boolean>>
-    editData:{}
-    setEditData:React.Dispatch<React.SetStateAction<{}>>
-    viewProfileToggle:boolean
-    setViewProfileToggle:React.Dispatch<React.SetStateAction<boolean>>
-    openShort:boolean
-    setOpenShort:React.Dispatch<React.SetStateAction<boolean>>
+    editData: {}
+    setEditData: React.Dispatch<React.SetStateAction<{}>>
+    viewProfileToggle: boolean
+    setViewProfileToggle: React.Dispatch<React.SetStateAction<boolean>>
+    openShort: boolean
+    setOpenShort: React.Dispatch<React.SetStateAction<boolean>>
 }
 interface ContextProps {
     children: React.ReactNode;
@@ -67,6 +67,7 @@ const Context: FC<ContextProps> = ({ children }) => {
     });
     useEffect(() => {
         localStorage.setItem('darkMode', darkMode.toString());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [darkMode]);
     const [toggleLogin, setToggleLogin] = useState(false);    //login button hide
     const [toggleRegister, setToggleRegister] = useState(false);    //login button hide
@@ -84,13 +85,12 @@ const Context: FC<ContextProps> = ({ children }) => {
     const [Importaint, setImportaint] = useState<datas[]>([])
     const [task, setTask] = useState<datas[]>([]);
     const [planned, setPlanned] = useState<datas[]>([])
-    const [viewProfileToggle,setViewProfileToggle]=useState(false)
+    const [viewProfileToggle, setViewProfileToggle] = useState(false)
 
     const handleThemesToggle = () => {    //set thems
         setColorPallet(false)
         setThemesToggle(false)
         setOpenShort(false)
-       
     }
 
     const contextValue: ContextValue = {
@@ -113,7 +113,7 @@ const Context: FC<ContextProps> = ({ children }) => {
         planned, setPlanned,
         openEdit, setOpenEdit,
         editData, setEditData,
-        viewProfileToggle,setViewProfileToggle,
+        viewProfileToggle, setViewProfileToggle,
         openShort, setOpenShort,
     };
 

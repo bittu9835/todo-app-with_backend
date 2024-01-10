@@ -30,7 +30,7 @@ const LeftNave: FC<LeftNaveProps> = () => {
                             <span><BiSun /></span>
                             <span className='text-base'>My Day</span></div>
                         <span className='pr-5 text-sm'>
-                            {MyDay.length > 0 ? MyDay.length : ''}
+                            {MyDay?.length > 0 ? MyDay?.length : ''}
                         </span>
                     </div>
                 </NavLink>
@@ -43,7 +43,7 @@ const LeftNave: FC<LeftNaveProps> = () => {
                             <span><AiOutlineStar /></span>
                             <span className='text-base'>Importaint</span></div>
                         <span className='pr-5 text-sm'>
-                            {Importaint.length > 0 ? Importaint.length : ''}
+                            {Importaint?.length > 0 ? Importaint?.length : ''}
                         </span>
                     </div>
                 </NavLink>
@@ -56,7 +56,7 @@ const LeftNave: FC<LeftNaveProps> = () => {
                             <span><BsCalendar4Event className='text-sm' /></span>
                             <span className='text-base'>Planned</span></div>
                         <span className='pr-5 text-sm'>
-                            {planned.length > 0 ? planned.length : ''}
+                            {planned?.length > 0 ? planned?.length : ''}
                         </span></div>
                 </NavLink>
 
@@ -68,7 +68,7 @@ const LeftNave: FC<LeftNaveProps> = () => {
                             <span className='text-xl'><IoInfiniteOutline /></span>
                             <span className='text-base'>All</span></div>
                         <span className='pr-5 text-sm'>
-                            {task.length > 0 ? task.length : ''}
+                            {task?.length > 0 ? task?.length : ''}
                         </span>
                     </div>
                 </NavLink>
@@ -90,7 +90,7 @@ const LeftNave: FC<LeftNaveProps> = () => {
                             <span><GoHome /></span>
                             <span className='text-base'>Tasks</span></div>
                         <span className='pr-5 text-sm'>
-                            {task.length > 0 ? task.length : ''}
+                            {task?.length > 0 ? task?.length : ''}
                         </span>
                     </div>
                 </NavLink>

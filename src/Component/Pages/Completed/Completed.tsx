@@ -5,11 +5,11 @@ import PageHeader from '../../Common/PageHeader/PageHeader';
 import { MyContext } from '../../../Contaxt/Contaxt';
 import CompletedData from '../../Common/CompletedData/CompletedData';
 
-interface CompletedProps {}
+interface CompletedProps { }
 
 const Completed: FC<CompletedProps> = () => {
-    const { LeftNaveBar,handleThemesToggle }: any = useContext(MyContext)
-   
+    const { LeftNaveBar, handleThemesToggle }: any = useContext(MyContext)
+
     return (
         <>
             <div className=' w-full h-[92vh]'>

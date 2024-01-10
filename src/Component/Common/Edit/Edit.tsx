@@ -5,7 +5,6 @@ import { PiRepeatLight } from 'react-icons/pi'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { AiOutlinePaperClip } from 'react-icons/ai'
 import { AiOutlineTag } from 'react-icons/ai'
-import { AiFillStar } from 'react-icons/ai'
 import { BsCircle, BsCheckCircle } from 'react-icons/bs'
 import { AiOutlineStar } from 'react-icons/ai'
 import { BsCalendar4Event } from 'react-icons/bs'
@@ -72,6 +71,7 @@ const Edit: FC<EditProps> = () => {
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [rander])
 
     const handleDelete = () => {
